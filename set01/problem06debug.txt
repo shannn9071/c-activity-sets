@@ -1,0 +1,39 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc problem06.c -O0 -g
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+35
+36      void output(int a, int b, int c, int largest)
+37      {
+38         printf("The largest number among %d, %d, and %d is: %d\n", a, b, c, largest);
+39      }
+40
+41      int main()
+42      {
+43         int a,b,c,largest;
+44         input(&a,&b,&c);
+(gdb) l
+45         compare(a, b, c,&largest);
+46         output(a, b, c, largest);
+47        return 0;
+48      }
+49
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe
+[New Thread 11532.0x4e04]
+[New Thread 11532.0x4358]
+Enter the first integer: 5
+Enter the second integer: 6
+Enter the third integer: 8
+The largest number among 5, 6, and 8 is: 8
+[Inferior 1 (process 11532) exited normally]
+(gdb) q

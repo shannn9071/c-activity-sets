@@ -1,0 +1,72 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc problem05.c -O0 -g
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+32      }
+33      void output(int a, int b, int c, int largest)
+34      {
+35          printf("The Largest number is %d\n", largest);
+36      }
+37
+38      int main()
+39      {
+40         int a,b,c, largest;
+41         a =input();
+(gdb) l
+42         b =input();
+43         c =input();
+44         largest = compare (a, b, c);
+45         output(a, b, c, largest);
+46         return 0;
+47      }(gdb) q
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc problem05.c -O0 -g
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+32      }
+33      void output(int a, int b, int c, int largest)
+34      {
+35          printf("The Largest number is %d\n", largest);
+36      }
+37
+38      int main()
+39      {
+40         int a,b,c, largest;
+41         a =input();
+(gdb) l
+42         b =input();
+43         c =input();
+44         largest = compare (a, b, c);
+45         output(a, b, c, largest);
+46         return 0;
+47      }(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe
+[New Thread 12636.0x3590]
+[New Thread 12636.0x225c]
+Enter the value :
+ 4
+Enter the value :
+ 5
+Enter the value :
+ 7
+The Largest number is 7
+[Inferior 1 (process 12636) exited normally]
+(gdb) q
