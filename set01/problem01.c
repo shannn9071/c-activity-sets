@@ -2,7 +2,6 @@
 #include<stdio.h>
 int main() {
     printf("shan");
-
     return 0;
 }
 
