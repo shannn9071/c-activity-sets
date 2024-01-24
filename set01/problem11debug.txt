@@ -1,0 +1,55 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc -g -O0 problem11.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+26      void output(Complex a, Complex b, Complex sum) {
+27          printf("Complex A: %.2f + %.2fi\n", a.real, a.imaginary);
+28          printf("Complex B: %.2f + %.2fi\n", b.real, b.imaginary);
+29          printf("Sum: %.2f + %.2fi\n", sum.real, sum.imaginary);
+30      }
+31
+32      int main() {
+33          Complex complexA, complexB, result;
+34
+35          printf("Enter values for Complex A:\n");
+(gdb) l
+36          complexA = input_complex();
+37
+38          printf("Enter values for Complex B:\n");
+39          complexB = input_complex();
+40
+41          result = add_complex(complexA, complexB);
+42
+43          printf("Result:\n");
+44          output(complexA, complexB, result);
+45
+(gdb) l
+46          return 0;
+47      }
+(gdb) l
+Line number 48 out of range; problem11.c has 47 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe
+[New Thread 11364.0x49f4]
+[New Thread 11364.0x4e8c]
+Enter values for Complex A:
+Enter real part: 10
+Enter imaginary part: 3
+Enter values for Complex B:
+Enter real part: 4
+Enter imaginary part: 6
+Result:
+Complex A: 10.00 + 3.00i
+Complex B: 4.00 + 6.00i
+Sum: 14.00 + 9.00i
+[Inferior 1 (process 11364) exited normally]
+(gdb) q
