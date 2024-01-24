@@ -1,0 +1,43 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc -g -O0 problem07.c 
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+1       #include<stdio.h>
+2       int input_n();
+3       int sum_n_nos(int n,int sum);
+4       void output(int n, int sum);
+5       int main()
+6       {
+7           int n,sum=0;
+8           n=input_n();
+9           sum=sum_n_nos(n,sum);
+10          output(n,sum);
+(gdb) l
+11          return 0;
+12      }
+13      int input_n()
+14      {
+15          int a;
+16          printf("Enter the value of n:\n");
+17          scanf("%d",&a);
+18          return a;
+19      }
+20      int sum_n_nos(int n,int sum)
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe
+[New Thread 7832.0xb08]
+[New Thread 7832.0x1328]
+Enter the value of n:
+5
+The sum of 5 is 15
+[Inferior 1 (process 7832) exited normally]
+(gdb) q
