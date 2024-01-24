@@ -1,0 +1,65 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc -g -O0 problem10.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+1       #include <stdio.h>
+2
+3       int main(void) {
+4
+5       int i;
+6       char ch1[100],ch2[100];
+7
+8         printf("enter the first string:\n");
+9       scanf("%s",&ch1);
+10
+(gdb) l
+11        printf("enter the second string:\n");
+12        scanf("%s",&ch2);
+13
+14
+15      for(int i=0 ;ch1[i] == ch2[i]&&ch1[i]!='\0'&&ch2[i]!='\0';i++);
+16
+17      if(ch1[i]>ch2[i])
+18      {
+19      printf("%s is greater\n",ch1);
+20        return 0;
+(gdb) l
+21
+22      }
+23
+24        if(ch2[i]>ch1[i])
+25        {
+26        printf("%s is greater\n",ch1);
+27          return 0;
+28
+29        }
+30
+(gdb) l
+31        else
+32        {
+33          printf("strings are equal\n");
+34        }
+35
+36        return 0;
+37      }(gdb) l
+Line number 38 out of range; problem10.c has 37 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe
+[New Thread 4164.0x2994]
+[New Thread 4164.0x3ecc]
+enter the first string:
+hello
+enter the second string:
+Hello
+hello is greater
+[Inferior 1 (process 4164) exited normally]
+(gdb) q
