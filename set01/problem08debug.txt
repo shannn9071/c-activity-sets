@@ -1,0 +1,74 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc -g -O0 problem08.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+1       #include<stdio.h>
+2       int input_array_size();
+3       void input_array(int n, int a[n]);
+4       int sum_n_array(int n, int a[n],int sum);
+5       void output(int n,int sum);
+6       int main()
+7       {
+8           int n,sum=0;
+9           n=input_array_size();
+10          int a[n];
+(gdb) l
+11          input_array(n,a);
+12          sum=sum_n_array(n,a,sum);
+13          output(n,sum);
+14          return 0;
+15      }
+16      int input_array_size()
+17      {
+18          int n;
+19          printf("Enter  the size of the array:\n");
+20          scanf("%d",&n);
+(gdb) l
+21          return n;
+22      }
+23      void input_array(int n, int a[n])
+24      {
+25          int i;
+26          printf("Enter the values of the array:\n");
+27          for(i=0;i<n;i++)
+28          {
+29              scanf("%d",&a[i]);
+30          }
+(gdb) l
+31      }
+32      int sum_n_array(int n, int a[n],int sum)
+33      {
+34          int i;
+35          for(i=0;i<n;i++)
+36          {
+37              sum=sum+a[i];
+38          }
+39          return sum;
+40      }
+(gdb) l
+41      void output(int n,int sum)
+42      {
+43          printf("The sum of the array of size %d is %d\n",n,sum);
+44      }(gdb) l
+Line number 45 out of range; problem08.c has 44 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe
+[New Thread 4092.0x34bc]
+[New Thread 4092.0x90c]
+Enter  the size of the array:
+2
+Enter the values of the array:
+4
+5
+The sum of the array of size 2 is 9
+[Inferior 1 (process 4092) exited normally]
+(gdb) q
