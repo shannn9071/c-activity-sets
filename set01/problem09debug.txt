@@ -1,0 +1,65 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc -g -O0 problem09.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+3       #include <math.h>
+4
+5       float input();
+6       float square_root(float n);
+7       void output(float n, float sqrroot);
+8
+9       int main()
+10      {
+11          float n, sqrrt;
+12          n=input();
+(gdb) l
+13          sqrrt=square_root(n);
+14          output(n,sqrrt);
+15          return 0;
+16      }
+17
+18      float input()
+19      {
+20          float n;
+21          printf("enter the number :\n");
+22          scanf("%f", &n);
+(gdb) l
+23          return n;
+24      }
+25
+26      float square_root(float n)
+27      {
+28
+29
+30        float x_old=1,x_new=n/2;
+31        float precision=0.000001;
+32        while(fabs(x_new-x_old)>precision)
+(gdb) l
+33          {
+34            x_old=x_new;
+35            x_new=(x_old+n/x_old)/2;
+36          }
+37        return x_new;
+38      }
+39
+40      void output(float n, float sqrroot)
+41      {
+42         printf("the squareroot of %f is %f", n,sqrroot);
+(gdb) l
+43      }(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe
+[New Thread 16972.0x47e0]
+[New Thread 16972.0x3678]
+enter the number :
+64
+the squareroot of 64.000000 is 8.000000[Inferior 1 (process 16972) exited normally]
+(gdb) q

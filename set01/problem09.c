@@ -18,7 +18,7 @@ int main()
 float input()
 {
     float n;
-    printf("enter the number\n");
+    printf("enter the number :\n");
     scanf("%f", &n);
     return n;
 }
