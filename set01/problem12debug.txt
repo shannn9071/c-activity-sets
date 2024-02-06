@@ -1,0 +1,107 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc -g -O0 problem12.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01\a.exe...done.
+(gdb) l
+7       typedef struct _complex Complex;
+8
+9       int get_n();
+10      Complex input_complex();
+11      void input_n_complex(int n, Complex c[n]);
+12      Complex add(Complex a, Complex b);
+13      Complex add_n_complex(int n, Complex c[n]);
+14      void output(int n, Complex c[n], Complex result);
+15
+16      int main() {
+(gdb) l
+17          int n;
+18          Complex result;
+19
+20          n = get_n();
+21
+22          Complex numbers[n];
+23          input_n_complex(n, numbers);
+24
+25          result = add_n_complex(n, numbers);
+26
+(gdb) l
+27          output(n, numbers, result);
+28
+29          return 0;
+30      }
+31
+32      int get_n() {
+33          int n;
+34          printf("Enter the number of complex numbers to add: ");
+35          scanf("%d", &n);
+36          return n;
+(gdb) l
+37      }
+38
+39      Complex input_complex() {
+40          Complex num;
+41          printf("Enter the real part of the complex number: ");
+42          scanf("%f", &num.real);
+43          printf("Enter the imaginary part of the complex number: ");
+44          scanf("%f", &num.imaginary);
+45          return num;
+46      }
+(gdb) l
+47
+48      void input_n_complex(int n, Complex c[n]) {
+49          for (int i = 0; i < n; i++) {
+50              printf("Enter complex number %d:\n", i + 1);
+51              c[i] = input_complex();
+52          }
+53      }
+54
+55      Complex add(Complex a, Complex b) {
+56          Complex sum;
+(gdb) l
+57          sum.real = a.real + b.real;
+58          sum.imaginary = a.imaginary + b.imaginary;
+59          return sum;
+60      }
+61
+62      Complex add_n_complex(int n, Complex c[n]) {
+63          Complex sum = c[0];
+64          for (int i = 1; i < n; i++) {
+65              sum = add(sum, c[i]);
+66          }
+(gdb) l
+67          return sum;
+68      }
+69
+70      void output(int n, Complex c[n], Complex result) {
+71          printf("Sum of %d complex numbers:\n", n);
+72          for (int i = 0; i < n; i++) {
+73              printf("Complex Number %d: %f + %fi\n", i + 1, c[i].real, c[i].imaginary);
+74          }
+75          printf("Result: %f + %fi\n", result.real, result.imaginary);
+76      }(gdb) l
+Line number 77 out of range; problem12.c has 76 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe 
+[New Thread 8472.0x35d8]
+[New Thread 8472.0x3f94]
+Enter the number of complex numbers to add: 2
+Enter complex number 1:
+Enter the real part of the complex number: 4
+Enter the imaginary part of the complex number: 5
+Enter complex number 2:
+Enter the real part of the complex number: 6
+Enter the imaginary part of the complex number: 7
+Sum of 2 complex numbers:
+Complex Number 1: 4.000000 + 5.000000i
+Complex Number 2: 6.000000 + 7.000000i
+Result: 10.000000 + 12.000000i
+[Inferior 1 (process 8472) exited normally]
+(gdb) q
