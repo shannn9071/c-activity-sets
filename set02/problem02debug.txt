@@ -1,0 +1,69 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gcc -g -O0 problem02.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02\a.exe...done.
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input_side();
+4       int check_scalene(int a, int b, int c);
+5       void output(int a, int b, int c, int is_scalene);
+6
+7       int main() {
+8           int side1, side2, side3;
+9           side1 = input_side();
+10          side2 = input_side();
+(gdb) l
+11          side3 = input_side();
+12          int is_scalene = check_scalene(side1, side2, side3);
+13          output(side1, side2, side3, is_scalene);
+14          return 0;
+15      }
+16
+17      int input_side() {
+18          int side;
+19          printf("Enter the length of a side: ");
+20          scanf("%d", &side);
+(gdb) l
+21          return side;
+22      }
+23
+24      int check_scalene(int a, int b, int c) {
+25          if (a != b && b != c && a != c) {
+26              return 1;
+27          } else {
+28              return 0;
+29          }
+30      }
+(gdb) ;
+Undefined command: "".  Try "help".
+(gdb) l
+31
+32      void output(int a, int b, int c, int is_scalene) {
+33          if (is_scalene) {
+34              printf("The triangle with sides %d, %d, and %d is a scalene triangle.\n", a, b, c);
+35          } else {
+36              printf("The triangle with sides %d, %d, and %d is not a scalene triangle.\n", a, b, c);
+37          }
+38      }
+39
+(gdb) l
+Line number 40 out of range; problem02.c has 39 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02/a.exe
+[New Thread 15048.0x2a3c]
+[New Thread 15048.0x3910]
+Enter the length of a side: 2
+Enter the length of a side: 2
+Enter the length of a side: 3
+The triangle with sides 2, 2, and 3 is not a scalene triangle.
+[Inferior 1 (process 15048) exited normally]
+(gdb) q
