@@ -1,3 +1,4 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc problem12.c
 PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gcc -g -O0 problem12.c
 PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01> gdb a.exe
 GNU gdb (GDB) 7.6.1
@@ -88,20 +89,22 @@ Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\se
 75          printf("Result: %f + %fi\n", result.real, result.imaginary);
 76      }(gdb) l
 Line number 77 out of range; problem12.c has 76 lines.
+(gdb) l
+Line number 77 out of range; problem12.c has 76 lines.
 (gdb) r
-Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe 
-[New Thread 8472.0x35d8]
-[New Thread 8472.0x3f94]
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set01/a.exe
+[New Thread 11100.0x4b0]
+[New Thread 11100.0xc04]
 Enter the number of complex numbers to add: 2
 Enter complex number 1:
 Enter the real part of the complex number: 4
 Enter the imaginary part of the complex number: 5
 Enter complex number 2:
-Enter the real part of the complex number: 6
-Enter the imaginary part of the complex number: 7
+Enter the real part of the complex number: 5
+Enter the imaginary part of the complex number: 3
 Sum of 2 complex numbers:
 Complex Number 1: 4.000000 + 5.000000i
-Complex Number 2: 6.000000 + 7.000000i
-Result: 10.000000 + 12.000000i
-[Inferior 1 (process 8472) exited normally]
+Complex Number 2: 5.000000 + 3.000000i
+Result: 9.000000 + 8.000000i
+[Inferior 1 (process 11100) exited normally]
 (gdb) q
