@@ -1,0 +1,64 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gcc -g -O0 problem03.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02\a.exe...done.
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input_number();
+4       int is_composite(int n);
+5       void output(int n, int result);
+6
+7       int main() {
+8           int number = input_number();
+9           int result = is_composite(number);
+10          output(number, result);
+(gdb) l
+11          return 0;
+12      }
+13
+14      int input_number() {
+15          int n;
+16          printf("Enter a number: ");
+17          scanf("%d", &n);
+18          return n;
+19      }
+20
+(gdb) l
+21      int is_composite(int n) {
+22          int factors = 0;
+23          for (int i = 1; i <= n; i++) {
+24              if (n % i == 0) {
+25                  factors++;
+26              }
+27          }
+28          return (factors > 2);
+29      }
+30
+(gdb) l
+31      void output(int n, int result) {
+32          if (result) {
+33              printf("%d is a composite number.\n", n);
+34          } else {
+35              printf("%d is not a composite number.\n", n);
+36          }
+37      }
+38
+(gdb) l
+Line number 39 out of range; problem03.c has 38 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02/a.exe
+[New Thread 16312.0x4bb4]
+[New Thread 16312.0x1e20]
+Enter a number: 2
+2 is not a composite number.
+[Inferior 1 (process 16312) exited normally]
+(gdb) q

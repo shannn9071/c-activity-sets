@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/shant/OneDrive/Documents/gitrep/c-activity-sets/set02",
-      "program": "c:/Users/shant/OneDrive/Documents/gitrep/c-activity-sets/set02/build/Debug/outDebug",
+      "cwd": "c:/Users/shant/OneDrive/Documents/gitrep/c-activity-sets/set01",
+      "program": "c:/Users/shant/OneDrive/Documents/gitrep/c-activity-sets/set01/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
