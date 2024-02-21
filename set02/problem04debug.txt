@@ -1,0 +1,98 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gcc -g -O0 problem04.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02\a.exe...done.
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input_array_size();
+4       void input_array(int n, int a[n]);
+5       int is_composite(int num);
+6       int sum_composite_numbers(int n, int a[n]);
+7       void output(int sum);
+8
+9       int main() {
+10          int n;
+(gdb) l
+11          n = input_array_size();
+12          int a[n];
+13          input_array(n, a);
+14          int sum = sum_composite_numbers(n, a);
+15          output(sum);
+16          return 0;
+17      }
+18
+19      int input_array_size() {
+20          int size;
+(gdb) l
+21          printf("Enter the size of the array: ");
+22          scanf("%d", &size);
+23          return size;
+24      }
+25
+26      void input_array(int n, int a[n]) {
+27          printf("Enter %d elements: ", n);
+28          for (int i = 0; i < n; i++) {
+29              scanf("%d", &a[i]);
+30          }
+(gdb) l
+31      }
+32
+33
+34      int is_composite(int num) {
+35          if (num <= 1)
+36              return 0;
+37          for (int i = 2; i <= num / 2; i++) {
+38              if (num % i == 0) {
+39                  return 1;
+40              }
+(gdb) l
+41          }
+42          return 0;
+43      }
+44
+45
+46      int sum_composite_numbers(int n, int a[n]) {
+47          int sum = 0;
+48          for (int i = 0; i < n; i++) {
+49              if (is_composite(a[i])) {
+50                  sum += a[i];
+(gdb) l
+51              }
+52          }
+53          return sum;
+54      }
+55
+56
+57      void output(int sum) {
+58          printf("Sum of composite numbers in the array: %d\n", sum);
+59      }
+(gdb) l
+Line number 60 out of range; problem04.c has 59 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02/a.exe 
+[New Thread 16708.0x3264]
+[New Thread 16708.0x596c]
+Enter the size of the array: 2
+Enter 2 elements: 4
+7
+Sum of composite numbers in the array: 4
+[Inferior 1 (process 16708) exited normally]
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02/a.exe 
+[New Thread 17568.0x4748]
+[New Thread 17568.0x288c]
+Enter the size of the array: 2
+Enter 2 elements: 24
+4
+Sum of composite numbers in the array: 28
+[Inferior 1 (process 17568) exited normally]
+(gdb) q
