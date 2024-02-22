@@ -1,0 +1,58 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gcc -g -O0 problem07.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02\a.exe...done.
+(gdb) l
+4       typedef struct _triangle {
+5           float base, altitude, area;
+6       } Triangle;
+7
+8       Triangle input_triangle();
+9       void find_area(Triangle *t);
+10      void output(Triangle t);
+11
+12      int main() {
+13          Triangle t = input_triangle();
+(gdb) l
+14          find_area(&t);
+15          output(t);
+16          return 0;
+17      }
+18
+19      Triangle input_triangle() {
+20          Triangle t;
+21          printf("Enter the base length of the triangle: ");
+22          scanf("%f", &t.base);
+23          printf("Enter the altitude of the triangle: ");
+(gdb) l
+24          scanf("%f", &t.altitude);
+25          return t;
+26      }
+27
+28      void find_area(Triangle *t) {
+29          t->area = 0.5 * t->base * t->altitude;
+30      }
+31
+32      void output(Triangle t) {
+33          printf("Area of the triangle with base %f and altitude %f is %f\n", t.base, t.altitude, t.area);
+(gdb) l
+34      }
+(gdb) l
+Line number 35 out of range; problem07.c has 34 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02/a.exe
+[New Thread 19448.0x1a80]
+[New Thread 19448.0x4dc0]
+Enter the base length of the triangle: 3
+Enter the altitude of the triangle: 4
+Area of the triangle with base 3.000000 and altitude 4.000000 is 6.000000
+[Inferior 1 (process 19448) exited normally]
+(gdb) q
