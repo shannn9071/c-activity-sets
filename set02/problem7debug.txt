@@ -18,7 +18,7 @@ Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\se
 8       Triangle input_triangle();
 9       void find_area(Triangle *t);
 10      void output(Triangle t);
-11
+11 
 12      int main() {
 13          Triangle t = input_triangle();
 (gdb) l
