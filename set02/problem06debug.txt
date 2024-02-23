@@ -1,0 +1,64 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gcc -g -O0 problem06.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02\a.exe...done.
+(gdb) l
+4       void input_string(char *a);
+5       void str_reverse(char *str, char *rev_str);
+6       void output(char *a, char *reverse_a);
+7
+8       int main() {
+9           char original_string[100];
+10          char reversed_string[100];
+11
+12
+13          input_string(original_string);
+(gdb) l
+14
+15          str_reverse(original_string, reversed_string);
+16
+17          output(original_string, reversed_string);
+18
+19          return 0;
+20      }
+21
+22      void input_string(char *a) {
+23          printf("Enter a string: ");
+(gdb) l
+24          scanf("%s", a);
+25      }
+26
+27
+28      void str_reverse(char *str, char *rev_str) {
+29          int length = strlen(str);
+30          int i, j = 0;
+31          for (i = length - 1; i >= 0; i--) {
+32              rev_str[j++] = str[i];
+33          }
+(gdb) l
+34          rev_str[j] = '\0';
+35      }
+36
+37      void output(char *a, char *reverse_a) {
+38          printf("Original string: %s\n", a);
+39          printf("Reversed string: %s\n", reverse_a);
+40      }
+(gdb) l
+Line number 41 out of range; problem06.c has 40 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02/a.exe
+[New Thread 15336.0x4a88]
+[New Thread 15336.0x2234]
+Enter a string: hello
+Original string: hello
+Reversed string: olleh
+[Inferior 1 (process 15336) exited normally]
+(gdb) q
