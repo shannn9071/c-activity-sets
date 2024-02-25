@@ -1,0 +1,57 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gcc -g -O0 problem08.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02\a.exe...done.
+(gdb) l
+50          for (int i = 0; i < n; i++) {
+51              printf("Triangle %d: Base = %.2f, Altitude = %.2f, Area = %.2f\n",
+52                     i + 1, t[i].base, t[i].altitude, t[i].area);
+53          }
+54          printf("\nThe triangle with the smallest area:\n");
+55          printf("Base = %.2f, Altitude = %.2f, Area = %.2f\n",
+56                 smallest.base, smallest.altitude, smallest.area);
+57      }
+58
+59      int main() {
+(gdb) l
+60          int n = input_n();
+61          Triangle triangles[n];
+62          input_n_triangles(n, triangles);
+63          find_n_areas(n, triangles);
+64          Triangle smallest = find_smallest_triangle(n, triangles);
+65          output(n, triangles, smallest);
+66          return 0;
+67      }
+(gdb) l
+Line number 68 out of range; problem08.c has 67 lines.
+(gdb) l
+Line number 68 out of range; problem08.c has 67 lines.
+(gdb) l
+Line number 68 out of range; problem08.c has 67 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set02/a.exe
+[New Thread 9840.0x3960]
+[New Thread 9840.0x468c]
+Enter the number of triangles: 2
+Triangle 1:
+Enter base and altitude of the triangle: 4
+5
+Triangle 2:
+Enter base and altitude of the triangle: 6
+4
+All triangles:
+Triangle 1: Base = 4.00, Altitude = 5.00, Area = 10.00
+Triangle 2: Base = 6.00, Altitude = 4.00, Area = 12.00
+
+The triangle with the smallest area:
+Base = 4.00, Altitude = 5.00, Area = 10.00
+[Inferior 1 (process 9840) exited normally]
+(gdb) q
