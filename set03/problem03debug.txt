@@ -1,0 +1,41 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03> gcc -g -O0 problem03.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03\a.exe...done.
+(gdb) l
+32      void output(int n, int result)
+33      {
+34          if (result == 1)
+35              printf("%d is a prime number.\n", n);
+36          else
+37              printf("%d is not a prime number.\n", n);
+38      }
+39
+40      int main() {
+41          int num = input_number();
+(gdb) l
+42          int prime_result = is_prime(num);
+43          output(num, prime_result);
+44          return 0;
+45      }
+(gdb) l
+Line number 46 out of range; problem03.c has 45 lines.
+(gdb) l
+Line number 46 out of range; problem03.c has 45 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03/a.exe 
+[New Thread 808.0x25b4]
+[New Thread 808.0xbe4]
+enter a number :
+5
+5 is a prime number.
+[Inferior 1 (process 808) exited normally]
+(gdb) q
