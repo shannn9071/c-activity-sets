@@ -1,0 +1,68 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03> gcc -g -O0 problem02.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03\a.exe...done.
+(gdb) l
+2
+3       void input_triangle(float *x1, float *y1, float *x2, float *y2, float *x3, float *y3);
+4       int is_triangle(float x1, float y1, float x2, float y2, float x3, float y3);
+5       void output(float x1, float y1, float x2, float y2, float x3, float y3, int result);
+6
+7       int main() {
+8           float x1, y1, x2, y2, x3, y3;
+9           int result;
+10
+11          input_triangle(&x1, &y1, &x2, &y2, &x3, &y3);
+(gdb) l
+12          result = is_triangle(x1, y1, x2, y2, x3, y3);
+13          output(x1, y1, x2, y2, x3, y3, result);
+14
+15          return 0;
+16      }
+17
+18      void input_triangle(float *x1, float *y1, float *x2, float *y2, float *x3, float *y3) {
+19          printf("Enter coordinates of first point (x1 y1): ");
+20          scanf("%f %f", x1, y1);
+21
+(gdb) l
+22          printf("Enter coordinates of second point (x2 y2): ");
+23          scanf("%f %f", x2, y2);
+24
+25          printf("Enter coordinates of third point (x3 y3): ");
+26          scanf("%f %f", x3, y3);
+27      }
+28
+29      int is_triangle(float x1, float y1, float x2, float y2, float x3, float y3) {
+30          return ((y2 - y1) * (x3 - x2) != (y3 - y2) * (x2 - x1));
+31      }
+(gdb) l
+32
+33      void output(float x1, float y1, float x2, float y2, float x3, float y3, int result) {
+34          if (result)
+35              printf("The points (%.2f, %.2f), (%.2f, %.2f), and (%.2f, %.2f) form a triangle.\n", x1, y1, x2, y2, x3, y3);
+36          else
+37              printf("The points (%.2f, %.2f), (%.2f, %.2f), and (%.2f, %.2f) do not form a triangle.\n", x1, y1, x2, y2, x3, y3);
+38      }
+(gdb) l
+Line number 39 out of range; problem02.c has 38 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03/a.exe
+[New Thread 14992.0x59cc]
+[New Thread 14992.0xbec]
+Enter coordinates of first point (x1 y1): 1
+1
+Enter coordinates of second point (x2 y2): 0
+0
+Enter coordinates of third point (x3 y3): 2
+2
+The points (1.00, 1.00), (0.00, 0.00), and (2.00, 2.00) do not form a triangle.
+[Inferior 1 (process 14992) exited normally]
+(gdb) q
