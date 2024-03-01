@@ -1,6 +1,23 @@
 #include <stdio.h>
 #include <string.h>
 
+void input_string(char* a, char* b);
+int sub_str_index(char* string, char* substring);
+void output(char *string, char *substring, int index);
+
+int main() {
+    char string[100];
+    char substring[100];
+
+    input_string(string, substring);
+
+    int index = sub_str_index(string, substring);
+
+    output(string, substring, index);
+
+    return 0;
+}
+
 void input_string(char* a, char* b) {
     printf("Enter the main string: ");
     scanf("%s", a);
@@ -19,23 +36,15 @@ int sub_str_index(char* string, char* substring) {
                 break;
         }
         if (j == sub_len)
-            return i; 
+            return i;
     }
+
     return -1; 
 }
 
 void output(char *string, char *substring, int index) {
-    if (index != -1) {
-        printf("The substring '%s' is found at index %d in the string '%s'.\n", substring, index, string);
-    } else {
-        printf("The substring '%s' is not found in the string '%s'.\n", substring, string);
-    }
-}
-
-int main() {
-    char string[100], substring[100];
-    input_string(string, substring);
-    int index = sub_str_index(string, substring);
-    output(string, substring, index);
-    return 0;
+    if (index != -1)
+        printf("The index of '%s' in '%s' is %d\n", substring, string, index);
+    else
+        printf("Substring '%s' not found in '%s'\n", substring, string);
 }

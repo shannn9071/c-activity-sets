@@ -1,0 +1,76 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03> gcc -g -O0 problem06.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03\a.exe...done.
+(gdb) l
+3
+4       void input_string(char* a, char* b);
+5       int sub_str_index(char* string, char* substring);
+6       void output(char *string, char *substring, int index);
+7
+8       int main() {
+9           char string[100];
+10          char substring[100];
+11
+12          input_string(string, substring);
+(gdb) l
+13
+14          int index = sub_str_index(string, substring);
+15
+16          output(string, substring, index);
+17
+18          return 0;
+19      }
+20
+21      void input_string(char* a, char* b) {
+22          printf("Enter the main string: ");
+(gdb) l
+23          scanf("%s", a);
+24          printf("Enter the substring: ");
+25          scanf("%s", b);
+26      }
+27
+28      int sub_str_index(char* string, char* substring) {
+29          int string_len = strlen(string);
+30          int sub_len = strlen(substring);
+31
+32          for (int i = 0; i <= string_len - sub_len; i++) {
+(gdb) l
+33              int j;
+34              for (j = 0; j < sub_len; j++) {
+35                  if (string[i + j] != substring[j])
+36                      break;
+37              }
+38              if (j == sub_len)
+39                  return i;
+40          }
+41
+42          return -1;
+(gdb) l
+43      }
+44
+45      void output(char *string, char *substring, int index) {
+46          if (index != -1)
+47              printf("The index of '%s' in '%s' is %d\n", substring, string, index);
+48          else
+49              printf("Substring '%s' not found in '%s'\n", substring, string);
+50      }
+(gdb) l
+Line number 51 out of range; problem06.c has 50 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03/a.exe
+[New Thread 4956.0x5580]
+[New Thread 4956.0x5990]
+Enter the main string: helloworld
+Enter the substring: world
+The index of 'world' in 'helloworld' is 5
+[Inferior 1 (process 4956) exited normally]
+(gdb) q
