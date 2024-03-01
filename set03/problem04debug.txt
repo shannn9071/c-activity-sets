@@ -1,0 +1,55 @@
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03> gcc -g -O0 problem04.c
+PS C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03> gdb a.exe
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "mingw32".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03\a.exe...done.
+(gdb) l
+1       #include <stdio.h>
+2
+3       int input();
+4       int find_fibo(int n);
+5       void output(int n, int fibo);
+6
+7       int main() {
+8           int n = input();
+9           int fibo = find_fibo(n); 
+10          output(n, fibo); 
+(gdb) l
+11          return 0;
+12      }
+13
+14      int input() {
+15          int n;
+16          printf("Enter the value of n: ");
+17          scanf("%d", &n);
+18          return n;
+19      }
+20
+(gdb) l
+21      int find_fibo(int n) {
+22          if (n <= 1)
+23              return n;
+24          else
+25              return find_fibo(n - 1) + find_fibo(n - 2);
+26      }
+27
+28      void output(int n, int fibo) {
+29          printf("fibo(%d) = %d\n", n, fibo);
+30      }
+(gdb) l
+Line number 31 out of range; problem04.c has 30 lines.
+(gdb) r
+Starting program: C:\Users\shant\OneDrive\Documents\gitrep\c-activity-sets\set03/a.exe
+[New Thread 15048.0x628c]
+[New Thread 15048.0x5554]
+Enter the value of n: 5
+fibo(5) = 5
+[Inferior 1 (process 15048) exited normally]
+(gdb) q
